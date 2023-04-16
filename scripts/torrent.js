@@ -42,9 +42,7 @@ class Torrent {
     link.text = "RuTracker";
 
     const style = document.createElement("style");
-
     style.textContent = ".b-external_link.rutracker .linkeable::before, .b-external_link.rutracker .none::before, .b-external_link.rutracker a::before, .b-external_link.rutracker span::before { content: ''; height: 19px; margin-right: 6px; width: 19px; background-size: 19px 19px; background-color: rgba(0, 0, 0, 0); background-image: url('https://rutracker.org/favicon.ico'); }";
-
     document.head.appendChild(style);
 
     link.href = `${torrent.src}`;
