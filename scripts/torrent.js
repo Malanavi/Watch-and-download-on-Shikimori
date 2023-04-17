@@ -10,6 +10,10 @@ class Torrent {
   static async #onViewChanged() {
     const match = Shikimori.isAnimePage(window.location);
     if (match) {
+      if (document.querySelector(".rutracker-link")) {
+        document.querySelector(".rutracker-link").remove();
+      }
+
       const animeId = match.groups.id;
 
       const nameOfAnime = Shikimori.getNameOfAnime(animeId);
@@ -59,7 +63,7 @@ class Torrent {
 
   static #createBlock(link) {
     const block = document.createElement("div");
-    block.className = "b-external_link rutracker b-menu-line";
+    block.className = "b-external_link rutracker b-menu-line rutracker-link";
 
     block.appendChild(link);
 

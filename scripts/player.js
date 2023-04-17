@@ -13,7 +13,15 @@ class Player {
   static async #onViewChanged() {
     const match = Shikimori.isAnimePage(window.location);
     if (match) {
+      if (document.querySelector(".open-player-button")) {
+        document.querySelector(".open-player-button").remove();
+      }
+      if (document.querySelector(".block-with-player")) {
+        document.querySelector(".block-with-player").remove();
+      }
+
       this.playerAdded = false;
+
       if (document.querySelectorAll(".subheadline")[0].textContent.includes("Information")) {
         this.lang = "eng"
       }
@@ -37,7 +45,7 @@ class Player {
 
   static #createOpenButton(player) {
     const button = document.createElement("div");
-    button.className = "watch-online";
+    button.className = "watch-online open-player-button";
 
     const line = document.createElement("div");
     line.className = "line";
