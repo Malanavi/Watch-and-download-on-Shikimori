@@ -87,6 +87,8 @@ class Player {
           openPlayer.innerText = "Закрыть Плеер";
         }
 
+        style.textContent = ".p-animes-show .c-info-right .watch-online .b-link_button::after, .p-mangas-show .c-info-right .watch-online .b-link_button::after, .p-ranobe-show .c-info-right .watch-online .b-link_button::after { content: '✖' }";
+
         this.playerAdded = true;
       }
       else if (this.playerAdded) {
@@ -98,6 +100,8 @@ class Player {
         else {
           openPlayer.innerText = "Открыть Плеер";
         }
+
+        style.textContent = ".p-animes-show .c-info-right .watch-online .b-link_button::after, .p-mangas-show .c-info-right .watch-online .b-link_button::after, .p-ranobe-show .c-info-right .watch-online .b-link_button::after { content: '▶' }";
 
         this.playerAdded = false;
       }
