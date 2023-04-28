@@ -28,14 +28,9 @@ class Player {
 
       const animeId = match.groups.id;
 
-      const episode = Shikimori.getWatchingEpisode(animeId);
+      const nameOfAnime = Shikimori.getNameOfAnime(animeId);
 
-      const player = this.#createPlayer();
-      player.animeId = animeId;
-      player.src = `//kodik.cc/find-player?shikimoriID=${player.animeId}` +
-                                        `&episode=${episode}`;
-
-      const button = this.#createOpenButton(player);
+      const button = this.#createOpenButton(nameOfAnime, animeId);
 
       const beforeForButton = document.querySelector(".c-info-right .block:last-child");
 
@@ -43,7 +38,7 @@ class Player {
     }
   }
 
-  static #createOpenButton(player) {
+  static #createOpenButton(nameOfAnime, animeId) {
     const button = document.createElement("div");
     button.className = "watch-online open-player-button";
 
@@ -52,7 +47,7 @@ class Player {
 
     const kind = document.createElement("div");
     kind.className = "kind";
-    kind.appendChild(document.createTextNode("Kodik"));
+    kind.appendChild(document.createTextNode("Kodik / AniLibria"));
 
     const openPlayer = document.createElement("a");
     openPlayer.className = "b-link_button dark";
@@ -70,14 +65,14 @@ class Player {
 
     openPlayer.onclick = () => {
       if (!this.playerAdded) {
-        const options = this.#createOptions(player);
+        const options = this.#createOptions(nameOfAnime, animeId);
 
         const headline = this.#createHeadline();
-  
-        const block = this.#createBlock(options, headline, player);
-  
+
+        const block = this.#createBlock(options, headline, animeId);
+
         const beforeForPlayer = document.getElementsByClassName("b-db_entry")[0];
-  
+
         Helpers.insertAfter(block, beforeForPlayer);
 
         if (this.lang == "eng") {
@@ -88,6 +83,8 @@ class Player {
         }
 
         style.textContent = ".p-animes-show .c-info-right .watch-online .b-link_button::after, .p-mangas-show .c-info-right .watch-online .b-link_button::after, .p-ranobe-show .c-info-right .watch-online .b-link_button::after { content: '✖' }";
+
+        Kodik.precreateKodikPlayer(animeId);
 
         this.playerAdded = true;
       }
@@ -113,17 +110,13 @@ class Player {
 
     return button;
   }
-  
-  static #createOptions(player) {
+
+  static #createOptions(nameOfAnime = null, animeId = null) {
     const options = document.createElement("div");
     options.className = "b-options-floated mobile-phone";
 
-    const kodik = document.createElement("a");
-    kodik.text = "Kodik";
-    kodik.onclick = () => player.src =
-      `//kodik.cc/find-player?shikimoriID=${player.animeId}` +
-                            `&episode=${Shikimori.getWatchingEpisode(player.animeId)}`;
-    options.appendChild(kodik);
+    options.appendChild(Kodik.createKodikButton(animeId));
+    options.appendChild(AniLibria.createAnilibriaButton(nameOfAnime));
 
     return options;
   }
@@ -141,29 +134,13 @@ class Player {
     return headline;
   }
 
-  static #createPlayer() {
-    const player = document.createElement("iframe");
-    player.width = "100%";
-    player.scrolling = "no";
-    player.allowFullscreen = true;
-    player.id = "player-iframe";
-
-    new ResizeObserver(() => {
-      player.height = 9 * player.clientWidth / 16; // Calculate to fit 16:9
-    }).observe(player);
-
-    return player;
-  }
-
-  static #createBlock(options, headline, player) {
+  static #createBlock(options, headline, animeId) {
     const block = document.createElement("div");
     block.className = "block block-with-player";
 
     block.appendChild(options);
 
     block.appendChild(headline);
-
-    block.appendChild(player);
 
     return block;
   }

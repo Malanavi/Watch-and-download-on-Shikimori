@@ -5,7 +5,7 @@
 // @icon https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/images/icons/logo128.png
 // @author Malanavi
 // @homepageURL https://github.com/Malanavi/Watch-and-download-on-Shikimori
-// @version 1.1.3
+// @version 2.0
 // @copyright 2023, Malanavi
 // @license GPL-3.0-or-later; https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -14,6 +14,9 @@
 
 // @require https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/scripts/helpers/helpers.js
 // @require https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/scripts/helpers/shikimori.js
+
+// @require https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/scripts/helpers/anilibria.js
+// @require https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/scripts/helpers/kodik.js
 
 // @require https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/scripts/torrent.js
 // @require https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/scripts/player.js
