@@ -7,7 +7,7 @@ The add-on adds the ability to watch and download anime on the Shikimori.me webs
 
 ### Add-on features
 • Shikimori-style "Open Player" button, player, and links  
-• Kodik player with the ability to select resolution, playback speed, dubbing, subtitles  
+•  Kodik and AniLibria player with the ability to select resolution (up to 1080p), playback speed, dubbing, subtitles
 • The player immediately opens the episode where you left off  
 • Ability to open and close the player  
 • Direct link to search the torrent tracker current anime  
