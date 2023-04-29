@@ -8,9 +8,7 @@
     "128": "./images/icons/logo128.png"
   },
   "permissions": [
-    "*://*.anilibria.tv/*",
-    "webRequest",
-    "webRequestBlocking"
+    "*://*.anilibria.tv/*"
   ],
 
   "content_scripts": [
