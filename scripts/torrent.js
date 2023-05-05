@@ -14,10 +14,13 @@ class Torrent {
       const nameOfAnime = Shikimori.getNameOfAnime(id);
       const links = [
         { name: "RuTracker", src: `https://rutracker.org/forum/tracker.php?nm=${nameOfAnime}` },
-        { name: "AniLibria-magnet", src: `${await AniLibria.getAnimeOnAnilibria('https://api.anilibria.tv/v3/title/search?search=' + nameOfAnime)
+        {
+          name: "AniLibria-magnet",
+          src: `${await AniLibria.getAnimeOnAnilibria('https://api.anilibria.tv/v3/title/search?search=' + nameOfAnime)
             .then(data => {
               return data.list[0].torrents.list[0].magnet;
-            })}`,
+            })
+          }`,
         },
         { name: "Erai-raws", src: `https://www.erai-raws.info/?s=${nameOfAnime}` },
       ];

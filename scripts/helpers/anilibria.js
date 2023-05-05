@@ -33,7 +33,7 @@ class AniLibria {
                     const block = document.querySelector(".block-with-player");
                     block.appendChild(this.#createAnilibriaPlayer(anilibriaId));
                 })
-                .catch(err => console.debug(err));
+                .catch(err => console.debug(err + 'Решение: включить/выключить VPN'));
         }
 
         return anilibria;
