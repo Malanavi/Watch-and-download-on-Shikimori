@@ -7,7 +7,7 @@ class Kodik {
         const kodik = document.createElement("a");
         kodik.text = "Kodik";
         kodik.onclick = () => {
-            this.#removePlayer(".iframe-player");
+            document.querySelectorAll(".iframe-player").forEach(player => player.remove());
 
             const block = document.querySelector(".block-with-player");
             block.appendChild(this.#createKodikPlayer(animeId));
@@ -35,12 +35,5 @@ class Kodik {
         }).observe(kodikPlayer);
 
         return kodikPlayer;
-    }
-
-    static #removePlayer(className) {
-        const player = document.querySelector(className);
-        if (player) {
-            player.remove();
-        }
     }
 }

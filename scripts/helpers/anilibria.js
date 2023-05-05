@@ -24,7 +24,7 @@ class AniLibria {
         const anilibria = document.createElement("a");
         anilibria.text = "AniLibria";
         anilibria.onclick = () => {
-            this.#removePlayer(".iframe-player");
+            document.querySelectorAll(".iframe-player").forEach(player => player.remove());
 
             const searchUrl = `https://api.anilibria.tv/v3/title/search?search=${nameOfAnime}`;
             AniLibria.getAnimeOnAnilibria(searchUrl)
@@ -53,12 +53,5 @@ class AniLibria {
         }).observe(anilibriaPlayer);
 
         return anilibriaPlayer;
-    }
-
-    static #removePlayer(className) {
-        const player = document.querySelector(className);
-        if (player) {
-            player.remove();
-        }
     }
 }
