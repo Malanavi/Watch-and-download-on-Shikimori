@@ -14,7 +14,7 @@ class AniLibria {
             return response.json();
         }
         const error = await response.json();
-        const e = new Error('Что-то пошло не так');
+        const e = new Error('Что-то пошло не так! Возможное решение: включить/выключить VPN');
         e.data = error;
         throw e;
     }
@@ -33,7 +33,7 @@ class AniLibria {
                     const block = document.querySelector(".block-with-player");
                     block.appendChild(this.#createAnilibriaPlayer(anilibriaId));
                 })
-                .catch(err => console.debug(err + 'Решение: включить/выключить VPN'));
+                .catch(err => console.debug(err));
         }
 
         return anilibria;
