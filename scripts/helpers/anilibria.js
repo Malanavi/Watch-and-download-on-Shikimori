@@ -16,7 +16,7 @@ class AniLibria {
         const error = await response.json();
         const e = new Error('Что-то пошло не так! Возможное решение: включить/выключить VPN');
         e.data = error;
-        throw e;
+        console.debug(e);
     }
 
     static createAnilibriaButton(nameOfAnime) {
@@ -33,7 +33,6 @@ class AniLibria {
                     const block = document.querySelector(".block-with-player");
                     block.appendChild(this.#createAnilibriaPlayer(anilibriaId));
                 })
-                .catch(err => console.debug(err));
         }
 
         return anilibria;
