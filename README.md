@@ -15,6 +15,11 @@ The add-on adds the ability to watch and download anime on the Shikimori.me webs
 2. Сlick the button  
 [![image](https://img.shields.io/static/v1?label=Violentmonkey&message=INSTALL&style=for-the-badge&color=yellow&logo=tampermonkey)](https://github.com/Malanavi/Watch-and-download-on-Shikimori/raw/main/manifest.user.js)
 
+### Safari
+1. Install [Userscripts](https://apps.apple.com/app/userscripts/id1463298887) extension
+2. Сlick the button  
+[![image](https://img.shields.io/static/v1?label=Userscripts&message=INSTALL&style=for-the-badge&color=yellow&logo=safari)](https://github.com/Malanavi/Watch-and-download-on-Shikimori/raw/main/manifest.user.js)
+
 ## Add-on features
 • Shikimori-style "Open Player" button, player, and links  
 •  Kodik and AniLibria player with the ability to select resolution (up to 1080p), playback speed, dubbing, subtitles  
