@@ -5,7 +5,7 @@
 // @icon https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/images/icons/logo128.png
 // @author Malanavi
 // @homepageURL https://github.com/Malanavi/Watch-and-download-on-Shikimori
-// @version 3.0.3
+// @version 3.0.4
 // @copyright 2023, Malanavi
 // @license GPL-3.0-or-later; https://www.gnu.org/licenses/gpl-3.0.txt
 
