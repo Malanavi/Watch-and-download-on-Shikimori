@@ -13,7 +13,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://shikimori.me/*"],
+      "matches": ["*://shikimori.one/*"],
       "js": [
         "./scripts/helpers/helpers.js",
         "./scripts/helpers/shikimori.js",

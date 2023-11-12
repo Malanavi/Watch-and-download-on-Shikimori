@@ -1,5 +1,5 @@
 # Watch and download on Shikimori
-The add-on adds the ability to watch and download anime on the Shikimori.me website.
+The add-on adds the ability to watch and download anime on the Shikimori.one website.
 
 ## Install
 ### Mozilla Firefox

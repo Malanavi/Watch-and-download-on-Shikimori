@@ -9,7 +9,7 @@
 // @copyright 2023, Malanavi
 // @license GPL-3.0-or-later; https://www.gnu.org/licenses/gpl-3.0.txt
 
-// @match *://shikimori.me/*
+// @match *://shikimori.one/*
 
 // @require https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/scripts/helpers/helpers.js
 // @require https://raw.github.com/Malanavi/Watch-and-download-on-Shikimori/main/scripts/helpers/shikimori.js
