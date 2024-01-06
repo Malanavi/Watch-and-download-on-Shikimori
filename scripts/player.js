@@ -32,9 +32,10 @@ class Player {
 
       const button = this.#createOpenButton(nameOfAnime, animeId);
 
-      const beforeForButton = document.querySelector(".c-info-right .block:last-child");
-
-      Helpers.insertAfter(button, beforeForButton);
+      const cInfoRight = document.querySelector(".c-info-right");
+      if (cInfoRight) {
+        cInfoRight.appendChild(button);
+      }
     }
   }
 
