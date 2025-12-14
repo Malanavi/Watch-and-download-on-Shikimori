@@ -1,30 +1,39 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Watch and download on Shikimori",
-  "version": "3.0.5",
-
+  "short_name": "Watch on Shikimori",
+  "version": "4.0.0",
   "description": "The addon adds the ability to watch and download anime on the Shikimori website.",
   "icons": {
-    "128": "./images/icons/logo128.png"
+    "128": "assets/icons/logo128.png"
   },
   "permissions": [
-    "*://*.anilibria.tv/*"
+    "activeTab",
+    "storage"
   ],
-
+  "host_permissions": [
+    "*://*.anilibria.tv/*",
+    "*://shikimori.one/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "watch-on-shikimori@Malanavi",
+      "strict_min_version": "91.0"
+    }
+  },
   "content_scripts": [
     {
       "matches": ["*://shikimori.one/*"],
-      "js": [
-        "./scripts/helpers/helpers.js",
-        "./scripts/helpers/shikimori.js",
-
-        "./scripts/helpers/anilibria.js",
-        "./scripts/helpers/kodik.js",
-
-        "./scripts/torrent.js",
-        "./scripts/player.js"
-        ],
-      "run_at": "document_start"
+      "js": ["content.bundle.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/torrent-icons/*"
+      ],
+      "matches": ["<all_urls>"]
     }
   ]
 }
