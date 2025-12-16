@@ -8,8 +8,7 @@
     "128": "assets/icons/logo128.png"
   },
   "permissions": [
-    "activeTab",
-    "storage"
+    "activeTab"
   ],
   "host_permissions": [
     "*://*.anilibria.tv/*",
