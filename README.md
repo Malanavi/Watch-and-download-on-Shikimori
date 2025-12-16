@@ -2,8 +2,6 @@
 
 A browser extension that adds the ability to **watch and download anime directly on the Shikimori.one website** using built-in players and torrent trackers.
 
----
-
 ## Features
 
 - Shikimori-style **Show / Hide Player** button.
@@ -16,8 +14,6 @@ A browser extension that adds the ability to **watch and download anime directly
 - Ability to show and hide the player without page reload.
 - Direct links to search for the current anime on supported torrent trackers.
 - Clean integration into the Shikimori UI.
-
----
 
 ## Installation
 
@@ -58,8 +54,6 @@ This project uses **Node.js**, **npm**, and a build step that outputs a ready-to
 
 - **Node.js** >= 18 (LTS recommended)
 - **npm** >= 9
-
----
 
 ### 1. Clone the repository
 
@@ -102,15 +96,11 @@ After the build completes, the compiled extension will be available in the `dist
 Always load the extension using the manifest.json file located in the dist folder,
 not the root manifest.json.
 
----
-
 ## Project Status
 
 - Current version: **4.x**
 - Status: **Maintenance mode**
 - Updates are released only to fix critical bugs or breaking issues.
-
----
 
 ## License
 
