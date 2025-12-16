@@ -29,22 +29,22 @@ A browser extension that adds the ability to **watch and download anime directly
 ### 1. Show the player
 Click the **Show Player** button on an anime page.
 
-![image](assets/screenshots/screenshot_1.png?raw=true)
+![image](assets/screenshots/screenshot_1.jpeg?raw=true)
 
 ### 2. Watch anime
 Watch anime using the built-in **Kodik** or **AniLibria** player with multiple dubbing and subtitle options.
 
-![image](assets/screenshots/screenshot_2.png?raw=true)
+![image](assets/screenshots/screenshot_2.jpeg?raw=true)
 
 ### 3. Hide the player
 Click the button again to hide the player.
 
-![image](assets/screenshots/screenshot_3.png?raw=true)
+![image](assets/screenshots/screenshot_3.jpeg?raw=true)
 
 ### 4. Download anime
 Use the provided links to find and download anime from supported torrent trackers.
 
-![image](assets/screenshots/screenshot_4.png?raw=true)
+![image](assets/screenshots/screenshot_4.jpeg?raw=true)
 
 ## How to Build (Development / Beta)
 
