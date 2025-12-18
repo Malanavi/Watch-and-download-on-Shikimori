@@ -7,9 +7,6 @@
   "icons": {
     "128": "assets/icons/logo128.png"
   },
-  "permissions": [
-    "activeTab"
-  ],
   "host_permissions": [
     "*://*.anilibria.tv/*",
     "*://shikimori.one/*"
