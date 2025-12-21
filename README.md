@@ -1,6 +1,15 @@
-# Watch and download on Shikimori
+# <img src="assets/icons/logo.png" alt="Watch on Shikimori logo" width="24" style="vertical-align: middle;"/> Watch and download on Shikimori
 
-A browser extension that adds the ability to **watch and download anime directly on the Shikimori.one website** using built-in players and torrent trackers.
+Watch and download on Shikimori is a browser extension that lets you **watch and download anime directly on the Shikimori website** using built-in players and torrent trackers.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [How to use?](#how-to-use)
+- [How to Build](#how-to-build)
+- [Project Status](#project-status)
+- [License](#license)
 
 ## Features
 
@@ -17,12 +26,15 @@ A browser extension that adds the ability to **watch and download anime directly
 
 ## Installation
 
-### Mozilla Firefox
+<div align="center">
 
 [![image](https://img.shields.io/amo/v/watch-on-shikimori?color=orange&style=for-the-badge&logo=firefoxbrowser)](https://addons.mozilla.org/en-US/firefox/addon/watch-on-shikimori/)
+[![image](https://img.shields.io/chrome-web-store/v/gbhlkingdkfeiolpfgpeclddinlahnjf?color=blue&style=for-the-badge&logo=google-chrome)](https://chromewebstore.google.com/detail/watch-and-download-on-shi/gbhlkingdkfeiolpfgpeclddinlahnjf)
 
-> 💡 You can install the stable version directly from Firefox Add-ons
-> or build and load the extension manually (see **How to build**).
+</div>
+
+> 💡 You can install the stable version directly from Firefox Add-ons, Chrome Web Store
+> or build and load the extension manually (see [How to Build](#how-to-build)).
 
 ## How to use?
 
@@ -46,7 +58,7 @@ Use the provided links to find and download anime from supported torrent tracker
 
 ![image](assets/screenshots/screenshot_4_chrome.jpeg?raw=true)
 
-## How to Build (Development / Beta)
+## How to Build
 
 This project uses **Node.js**, **npm**, and a build step that outputs a ready-to-use browser extension.
 
