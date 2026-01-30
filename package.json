@@ -1,6 +1,6 @@
 {
   "name": "watch-and-download-on-shikimori",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "type": "module",
   "description": "The addon adds the ability to watch and download anime on the Shikimori website.",
   "main": "content.js",
