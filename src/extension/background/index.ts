@@ -31,12 +31,13 @@ async function register(origin: string): Promise<void> {
 
     const existing = await chrome.scripting.getRegisteredContentScripts();
 
-    const alreadyRegistered = existing.some(script =>
-        script.id === SCRIPT_ID &&
-        script.matches?.includes(pattern)
-    );
+    const existingScript = existing.find(s => s.id === SCRIPT_ID);
 
-    if (alreadyRegistered) {
+    if (
+        existingScript &&
+        existingScript.matches?.length === 1 &&
+        existingScript.matches[0] === pattern
+    ) {
         return;
     }
 
@@ -54,14 +55,23 @@ async function injectIntoExistingTabs(origin: string): Promise<void> {
     const pattern = patternFromOrigin(origin);
     const tabs = await chrome.tabs.query({ url: pattern });
 
-    for (const tab of tabs) {
-        if (!tab.id) continue;
+    const injectables = tabs.filter(
+        tab =>
+            tab.id &&
+            tab.url &&
+            tab.status !== "unloaded" &&
+            !tab.url.startsWith("chrome://") &&
+            !tab.url.startsWith("about:")
+    );
 
-        await chrome.scripting.executeScript({
-            target: { tabId: tab.id },
-            files: ["content.js"]
-        }).catch(() => { });
-    }
+    await Promise.all(
+        injectables.map(tab =>
+            chrome.scripting.executeScript({
+                target: { tabId: tab.id! },
+                files: ["content.js"]
+            }).catch(() => { })
+        )
+    );
 }
 
 async function ensureRegisteredAndInjected(origin: string): Promise<void> {
