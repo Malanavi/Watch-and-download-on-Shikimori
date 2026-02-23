@@ -10,8 +10,6 @@ type DomainSelectedMessage = {
 const SCRIPT_ID = "dynamic-shikimori";
 const STORAGE_KEY = "currentDomain";
 
-let currentRegisteredOrigin: string | null = null;
-
 function patternFromOrigin(origin: string): string {
     return `${origin}/*`;
 }
@@ -29,9 +27,18 @@ async function hasPermission(origin: string): Promise<boolean> {
 }
 
 async function register(origin: string): Promise<void> {
-    if (currentRegisteredOrigin === origin) return;
-
     const pattern = patternFromOrigin(origin);
+
+    const existing = await chrome.scripting.getRegisteredContentScripts();
+
+    const alreadyRegistered = existing.some(script =>
+        script.id === SCRIPT_ID &&
+        script.matches?.includes(pattern)
+    );
+
+    if (alreadyRegistered) {
+        return;
+    }
 
     await chrome.scripting.unregisterContentScripts({ ids: [SCRIPT_ID] }).catch(() => { });
 
@@ -41,8 +48,6 @@ async function register(origin: string): Promise<void> {
         js: ["content.js"],
         runAt: "document_end"
     }]);
-
-    currentRegisteredOrigin = origin;
 }
 
 async function injectIntoExistingTabs(origin: string): Promise<void> {
@@ -70,8 +75,6 @@ async function restore(): Promise<void> {
     const data = await chrome.storage.sync.get(STORAGE_KEY) as StorageShape;
     if (!data.currentDomain) return;
 
-    currentRegisteredOrigin = data.currentDomain;
-
     await ensureRegisteredAndInjected(data.currentDomain);
 }
 
@@ -86,8 +89,6 @@ chrome.permissions.onAdded.addListener(async (permissions) => {
 
         await chrome.storage.sync.set({ [STORAGE_KEY]: origin });
 
-        currentRegisteredOrigin = origin;
-
         await ensureRegisteredAndInjected(origin);
     }
 });
@@ -98,8 +99,6 @@ chrome.runtime.onMessage.addListener(async (msg: unknown) => {
     if (message?.type !== "DOMAIN_SELECTED") return;
 
     const origin = message.origin;
-
-    currentRegisteredOrigin = origin;
 
     await ensureRegisteredAndInjected(origin);
 });

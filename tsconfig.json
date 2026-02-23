@@ -37,7 +37,7 @@
     }
   },
   "include": ["src/**/*", "types/**/*",
-    "src/content.ts"
+    "src/extension/content/index.ts"
   ],
   "exclude": ["node_modules", "dist", "*.config.js"]
 }

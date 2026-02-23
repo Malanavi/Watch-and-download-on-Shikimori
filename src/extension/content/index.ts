@@ -1,8 +1,8 @@
 import PageObserver from "@/services/PageObserver";
-import ShowPlayerButtonLoader from "./ui/ShowPlayerButtonLoader";
-import TorrentLinksLoader from "./ui/TorrentLinksLoader";
-import "./ui/buttons/playerSelectionButtons/initButtons";
-import "./ui/players/initPlayers";
+import ShowPlayerButtonLoader from "../../ui/ShowPlayerButtonLoader";
+import TorrentLinksLoader from "../../ui/TorrentLinksLoader";
+import "../../ui/buttons/playerSelectionButtons/initButtons";
+import "../../ui/players/initPlayers";
 
 const w = window as any;
 
