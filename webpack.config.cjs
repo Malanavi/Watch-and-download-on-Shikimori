@@ -1,15 +1,19 @@
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const webpack = require('webpack');
-const {SourceMapDevToolPlugin} = webpack;
+const { SourceMapDevToolPlugin } = webpack;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: ['./src/setPublicPath.ts', './src/content.ts'],
+  entry: {
+    content: ['./src/setPublicPath.ts', './src/content.ts'],
+    popup: './src/popup.ts',
+    bg: './src/bg.ts'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'content.bundle.js',
+    filename: '[name].js',
     publicPath: '',
     clean: true,
   },
@@ -76,7 +80,8 @@ module.exports = {
           from: 'assets/icons',
           to: 'assets/icons'
         },
-        {from: 'manifest.json', to: '.'},
+        { from: 'manifest.json', to: '.' },
+        { from: 'popup.html', to: '.' }
       ],
     }),
   ],

@@ -7,33 +7,40 @@
   "icons": {
     "128": "assets/icons/logo128.png"
   },
-  "host_permissions": [
-    "*://*.anilibria.tv/*",
-    "*://shikimori.one/*",
-    "*://shiki.one/*"
+  "permissions": [
+    "storage",
+    "scripting"
   ],
+  "host_permissions": [
+    "*://*.anilibria.tv/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "bg.js"
+    ],
+    "service_worker": "bg.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
   "browser_specific_settings": {
     "gecko": {
       "id": "{0dccad16-7fec-4fd4-93c1-f43117a2a4d0}",
       "strict_min_version": "91.0"
     }
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "*://shiki.one/*",
-        "*://shikimori.one/*"
-      ],
-      "js": ["content.bundle.js"],
-      "run_at": "document_end"
-    }
-  ],
   "web_accessible_resources": [
     {
       "resources": [
         "assets/torrent-icons/*"
       ],
-      "matches": ["<all_urls>"]
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ]
 }
