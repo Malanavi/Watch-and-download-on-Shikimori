@@ -38,22 +38,32 @@ Watch and download on Shikimori is a browser extension that lets you **watch and
 
 ## How to use?
 
-### 1. Show the player
+### 1. Configure the current Shikimori domain
+
+Due to frequent changes in Shikimori domains, the extension needs to know the current domain before it can work.
+
+1. Click the extension icon in the browser toolbar.
+2. Enter the current Shikimori domain (for example: `shikimori.one`)
+3. Click **Save** and grant access when prompted by your browser.
+
+> You only need to do this once \u2014 or whenever Shikimori changes its domain again.
+
+### 2. Show the player
 Click the **Show Player** button on an anime page.
 
 ![image](assets/screenshots/screenshot_1_chrome.jpeg?raw=true)
 
-### 2. Watch anime
+### 3. Watch anime
 Watch anime using the built-in **Kodik** or **AniLibria** player with multiple dubbing and subtitle options.
 
 ![image](assets/screenshots/screenshot_2_chrome.jpeg?raw=true)
 
-### 3. Hide the player
+### 4. Hide the player
 Click the button again to hide the player.
 
 ![image](assets/screenshots/screenshot_3_chrome.jpeg?raw=true)
 
-### 4. Download anime
+### 5. Download anime
 Use the provided links to find and download anime from supported torrent trackers.
 
 ![image](assets/screenshots/screenshot_4_chrome.jpeg?raw=true)
