@@ -46,7 +46,7 @@ Due to frequent changes in Shikimori domains, the extension needs to know the cu
 2. Enter the current Shikimori domain (for example: `shikimori.one`)
 3. Click **Save** and grant access when prompted by your browser.
 
-> You only need to do this once or whenever Shikimori changes its domain again.
+> You only need to do this once — or whenever Shikimori changes its domain again.
 
 ### 2. Show the player
 Click the **Show Player** button on an anime page.
