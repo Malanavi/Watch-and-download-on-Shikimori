@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Watch and download on Shikimori",
   "short_name": "Watch on Shikimori",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "The addon adds the ability to watch and download anime on the Shikimori website.",
   "icons": {
     "128": "assets/icons/logo128.png"
