@@ -1,6 +1,6 @@
 {
   "name": "watch-and-download-on-shikimori",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "type": "module",
   "description": "The addon adds the ability to watch and download anime on the Shikimori website.",
   "main": "content.js",
@@ -39,7 +39,7 @@
     "@typescript-eslint/eslint-plugin": "^8.48.1",
     "@typescript-eslint/parser": "^8.48.1",
     "babel-loader": "^9.1.3",
-    "copy-webpack-plugin": "^13.0.1",
+    "copy-webpack-plugin": "^14.0.0",
     "eslint": "^9.39.1",
     "fork-ts-checker-webpack-plugin": "^9.1.0",
     "ts-loader": "^9.5.4",

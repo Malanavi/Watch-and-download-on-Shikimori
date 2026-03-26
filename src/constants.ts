@@ -15,7 +15,7 @@ export const PLAYER_TYPES = {
 } as const;
 
 export const SERVICE_URLS = {
-  KODIK_IFRAME_PLAYER_URL: "//kodik.cc/find-player",
+  KODIK_IFRAME_PLAYER_URL: "//kodikplayer.com/find-player",
   ANILIBRIA_IFRAME_PLAYER_URL: "https://tb2s5.anilib.top/public/iframe.php",
   ANILIBRIA_API_SEARCH_URL: "https://api.anilibria.app/api/v1/app/search/releases",
   RUTRACKER_URL: "https://rutracker.org/forum/tracker.php",
