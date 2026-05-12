@@ -9,6 +9,10 @@ interface ShowPlayerButtonConfig {
   showAniLibria: boolean;
 }
 
+interface ShowPlayerButtonState {
+  showAniLibria: boolean;
+}
+
 class ShowPlayerButton {
   private static readonly BUTTON_CLASSES = {
     ROOT: "watch-online show-player-button",
@@ -19,21 +23,46 @@ class ShowPlayerButton {
 
   private static readonly KIND_TEXT_KODIK_ANILIBRIA = "Kodik / Anilibria";
   private static readonly KIND_TEXT_KODIK = "Kodik";
+  private static readonly states = new WeakMap<
+    HTMLDivElement,
+    ShowPlayerButtonState
+  >();
 
   public static createShowButton(
     config: ShowPlayerButtonConfig,
   ): HTMLDivElement {
     const root = ShowPlayerButton.createRootButton();
-    const link = ShowPlayerButton.createLinkButton(config);
+    const state: ShowPlayerButtonState = {
+      showAniLibria: config.showAniLibria,
+    };
+    const link = ShowPlayerButton.createLinkButton(config, state);
     const kind = ShowPlayerButton.createKindElement(config.showAniLibria);
     const line = ShowPlayerButton.createLineElement(link);
 
     root.appendChild(line);
     root.appendChild(kind);
 
+    ShowPlayerButton.states.set(root, state);
     ShowPlayerButton.appendToContainer(root);
 
     return root;
+  }
+
+  public static setAniLibriaAvailable(
+    button: HTMLDivElement,
+    showAniLibria: boolean,
+  ): void {
+    const state = ShowPlayerButton.states.get(button);
+    if (state) {
+      state.showAniLibria = showAniLibria;
+    }
+
+    const kind = button.querySelector<HTMLDivElement>(
+      `.${ShowPlayerButton.BUTTON_CLASSES.KIND}`,
+    );
+    if (kind === null) return;
+
+    kind.textContent = ShowPlayerButton.getKindText(showAniLibria);
   }
 
   private static createRootButton(): HTMLDivElement {
@@ -44,6 +73,7 @@ class ShowPlayerButton {
 
   private static createLinkButton(
     config: ShowPlayerButtonConfig,
+    state: ShowPlayerButtonState,
   ): HTMLAnchorElement {
     const link = DomHelper.createElement<HTMLAnchorElement>("a", {
       className: ShowPlayerButton.BUTTON_CLASSES.LINK,
@@ -56,7 +86,7 @@ class ShowPlayerButton {
         link,
         config.animeName,
         config.animeId,
-        config.showAniLibria,
+        state.showAniLibria,
       );
     });
 
@@ -81,14 +111,16 @@ class ShowPlayerButton {
   private static createKindElement(
     showAnilibria: boolean,
   ): HTMLDivElement {
-    const text = showAnilibria
-      ? ShowPlayerButton.KIND_TEXT_KODIK_ANILIBRIA
-      : ShowPlayerButton.KIND_TEXT_KODIK;
-
     return DomHelper.createElement("div", {
       className: ShowPlayerButton.BUTTON_CLASSES.KIND,
-      textContent: text,
+      textContent: ShowPlayerButton.getKindText(showAnilibria),
     });
+  }
+
+  private static getKindText(showAnilibria: boolean): string {
+    return showAnilibria
+      ? ShowPlayerButton.KIND_TEXT_KODIK_ANILIBRIA
+      : ShowPlayerButton.KIND_TEXT_KODIK;
   }
 
   private static createLineElement(

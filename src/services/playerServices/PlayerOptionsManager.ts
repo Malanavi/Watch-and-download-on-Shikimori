@@ -3,6 +3,9 @@ import DomHelper from "@/helpers/DomHelper";
 import {PLAYER_TYPES} from "@/constants";
 
 class PlayerOptionsManager {
+  private static readonly OPTIONS_SELECTOR = ".block-with-player .b-options-floated";
+  private static readonly ANILIBRIA_BUTTON_SELECTOR = ".anilibria-button";
+
   async createOptions(
     nameOfAnime: string,
     animeId: number,
@@ -30,6 +33,26 @@ class PlayerOptionsManager {
     });
 
     return options;
+  }
+
+  public addAniLibriaOption(
+    nameOfAnime: string,
+    animeId: number,
+  ): void {
+    const options: HTMLElement | null = document
+      .querySelector(PlayerOptionsManager.OPTIONS_SELECTOR);
+
+    if (options === null) return;
+
+    if (options.querySelector(PlayerOptionsManager.ANILIBRIA_BUTTON_SELECTOR)) {
+      return;
+    }
+
+    const button: HTMLAnchorElement = buttonFactory.createButton(
+      PLAYER_TYPES.ANILIBRIA,
+      {nameOfAnime, animeId},
+    );
+    options.appendChild(button);
   }
 }
 

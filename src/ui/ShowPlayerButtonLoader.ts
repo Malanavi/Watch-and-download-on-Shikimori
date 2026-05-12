@@ -5,6 +5,7 @@ import PlayerStyleManager from "../services/playerServices/PlayerStyleManager";
 import {BaseLoader} from "@/ui/BaseLoader";
 import AnilibriaLookupService from "@/services/playerProviderServices/AnilibriaLookupService";
 import type {AniLibriaSearchResult} from "@/services/playerProviderServices/AnilibriaService";
+import PlayerOptionsManager from "@/services/playerServices/PlayerOptionsManager";
 
 class ShowPlayerButtonLoader extends BaseLoader {
   private readonly shikimoriApi: ShikimoriService;
@@ -31,18 +32,44 @@ class ShowPlayerButtonLoader extends BaseLoader {
 
     if (animeName === null) return;
 
-    const lookup: AnilibriaLookupService = AnilibriaLookupService
-      .getInstance();
-    const result: AniLibriaSearchResult | null = await lookup
-      .getOrFetch(animeName);
-    const showAniLibria: boolean = result !== null && result.length > 0;
-
-    ShowPlayerButton.createShowButton({
+    const button: HTMLDivElement = ShowPlayerButton.createShowButton({
       animeName,
       animeId,
-      showAniLibria,
+      showAniLibria: false,
     });
     this.styleManager.setShowButtonInactiveStyle();
+
+    void this.updateAniLibriaAvailability(
+      button,
+      animeName,
+      animeId,
+      window.location.pathname,
+    );
+  }
+
+  private async updateAniLibriaAvailability(
+    button: HTMLDivElement,
+    animeName: string,
+    animeId: number,
+    pathname: string,
+  ): Promise<void> {
+    const lookup: AnilibriaLookupService = AnilibriaLookupService
+      .getInstance();
+
+    const result: AniLibriaSearchResult | null = await lookup
+      .getOrFetch(animeName);
+
+    const showAniLibria: boolean = result !== null && result.length > 0;
+
+    if (!showAniLibria) return;
+    if (!button.isConnected) return;
+    if (window.location.pathname !== pathname) return;
+
+    ShowPlayerButton.setAniLibriaAvailable(button, true);
+    new PlayerOptionsManager().addAniLibriaOption(
+      animeName,
+      animeId,
+    );
   }
 
   private static removeExistingElements(): void {
